@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+
+<%= form_tag create_comment_post_path, method: :post, remote: true do %>
+  <%= text_field_tag :content%>
+  <%= submit_tag "댓글달기"%>
+<% end %>
+
+<div id="comments">
+  <% @comments.each do |comment|%>
+    <div><%=comment.content%></div>
+  <% end %>
+</div>
+
+<!-- <%#= form_tag "/posts/#{@post.id}/create_comment", method: :get do %> -->

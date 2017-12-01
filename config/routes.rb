@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'home/terms'
+
+  get 'home/help'
+
   devise_for :users
   root 'posts#index'
 

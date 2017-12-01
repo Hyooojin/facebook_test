@@ -9,6 +9,14 @@ class PostTest < ActiveSupport::TestCase
 
     })
     assert post.save, 'Failed to save'
-    assert true
+  end
+
+  test "post " do
+    post = Post.new({
+      title: Faker::Lorem.paragraph(sentence_count = 100),
+      content: Faker::Lorem.paragraph(sentence_count = 200),
+      user_id: 1
+    })
+    refute post.save, 'Validation success' # assert_not
   end
 end

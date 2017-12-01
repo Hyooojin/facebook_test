@@ -55,4 +55,6 @@ class PostsControllerTest < ActionController::TestCase
 
     # assert_redirected_to "/posts/#{@post.id}/"
   end
+
+  
 end

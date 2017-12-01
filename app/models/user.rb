@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+
+  validates :email,
+    presence: true,
+    uniqueness: true,
+    format: {with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/}
 end
